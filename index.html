@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+       
+        <title>Game</title>
+        
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+     <center> 
+         <h3>Reach the finish line first!</h3>
+        <table class="container1" id="container1">
+        <tr>
+            <td class="boxpl1" id="boxm1"></td>
+            <td class="boxpl1" id="boxm2"></td>
+            <td class="boxpl1" id="boxm3"></td>
+            <td class="boxpl1" id="boxm4"></td>
+            <td class="boxpl1" id="boxm5"></td>
+            <td class="boxpl1" id="boxm6"></td>
+            <td class="boxpl1" id="boxm7"></td>
+            <td class="boxpl1" id="boxm8"></td>
+            <td class="boxpl1" id="boxm9"></td>
+            <td class="boxpl1" id="boxm10"></td>
+            <td class="boxpl1" id="boxm11"></td>
+            <td class="boxpl1" id="boxm12"></td>
+            <td class="boxpl1" id="boxm13"></td>
+            <td class="boxpl1" id="boxm14"></td>
+            <td class="boxpl1" id="boxm15"></td>
+            <td class="boxpl1" id="boxm16"></td>
+            <td class="boxpl1" id="boxm17"></td>
+            <td class="boxpl1" id="boxm18">Finish</td>
+        </tr>
+        </table>
+        <button id="b1" onclick="p1dr()">Player 1, roll dice!</button>
+        
+        <table class="container2" id="container2">
+            <tr>
+                <td class="boxpl2" id="boxn1"></td>
+                <td class="boxpl2" id="boxn2"></td>
+                <td class="boxpl2" id="boxn3"></td>
+                <td class="boxpl2" id="boxn4"></td>
+                <td class="boxpl2" id="boxn5"></td>
+                <td class="boxpl2" id="boxn6"></td>
+                <td class="boxpl2" id="boxn7"></td>
+                <td class="boxpl2" id="boxn8"></td>
+                <td class="boxpl2" id="boxn9"></td>
+                <td class="boxpl2" id="boxn10"></td>
+                <td class="boxpl2" id="boxn11"></td>
+                <td class="boxpl2" id="boxn12"></td>
+                <td class="boxpl2" id="boxn13"></td>
+                <td class="boxpl2" id="boxn14"></td>
+                <td class="boxpl2" id="boxn15"></td>
+                <td class="boxpl2" id="boxn16"></td>
+                <td class="boxpl2" id="boxn17"></td>
+                <td class="boxpl2" id="boxn18">Finish</td>
+            </tr>
+            </table>
+            <button id="b2" onclick="p2dr()">Player 2, roll dice!</button>
+
+        
+   
+    <script>
+        
+        var pos1=0;
+        var pos2=0;
+        document.getElementById('boxm1').innerHTML="Player 1"
+        document.getElementById('boxn1').innerHTML="Player 2"
+        
+        var diceroll = function()
+        {
+            return Math.floor(Math.random()*(6-1+1))+1;
+        }
+
+        function p1dr()
+        {   
+            var move1=diceroll()
+            var cell = document.getElementById('container1').rows[0].cells;
+            
+            if (move1+pos1<18)
+            { 
+              alert(move1)
+              cell[pos1].innerHTML="";
+              pos1=move1+pos1; 
+              cell[pos1].innerHTML="Player 1";
+              
+              if(pos1==17)
+              {
+                alert("Player 1 wins!!!")
+                document.getElementById('b2').innerHTML="Game over!" 
+              }
+            }
+            else 
+            {
+              alert(move1+", wait for your next turn!")
+            }
+            document.getElementById("b1").style.backgroundColor='#dddddd';
+            document.getElementById("b2").style.backgroundColor='yellow';
+
+        } 
+
+        
+        
+        
+        
+        
+        
+        
+        function p2dr()
+        {   
+            var move2=diceroll()
+            var cell = document.getElementById('container2').rows[0].cells;
+            
+            if (move2+pos2<18)
+            { 
+              alert(move2)
+              cell[pos2].innerHTML="";
+              pos2=move2+pos2; 
+              cell[pos2].innerHTML="Player 2";
+              
+              if(pos2==17)
+              {
+                alert("Player 2 wins!!!")
+                document.getElementById('b1').innerHTML="Game over!"  
+              }
+            }
+            else 
+            {
+              alert(move2+", wait for your next turn!")
+            }
+            document.getElementById("b2").style.backgroundColor='#dddddd';
+            document.getElementById("b1").style.backgroundColor='yellow';
+
+
+        } 
+
+
+    
+
+
+
+    </script> 
+    </center>
+    </body>
+</html>
